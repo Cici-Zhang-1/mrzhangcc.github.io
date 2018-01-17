@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8" />
+        
+        <title>Linux环境下非root用户安装Mysql | ZhangCC</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="description" content="有些时候，虽然我们有权访问Linux，但是我们不能以root用户登入或者没有sudo的所有权限，这可能导致安装受阻。但也并非没有办法，下面就介绍在Linux环境下以非root身份安装Mysql。 我们使用Mysql5.7.13安装包。 设置我们将下载的Mysql安装包解压到一个文件夹中，例如：/usrs/mysql 然后把这个目录定义为$MYSQL_HOME，然后按如下步骤设置安装环境：  创建$">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux环境下非root用户安装Mysql">
+<meta property="og:url" content="http://www.zhangcc.me/2018/01/17/Linux环境下非root用户安装Mysql/index.html">
+<meta property="og:site_name" content="ZhangCC">
+<meta property="og:description" content="有些时候，虽然我们有权访问Linux，但是我们不能以root用户登入或者没有sudo的所有权限，这可能导致安装受阻。但也并非没有办法，下面就介绍在Linux环境下以非root身份安装Mysql。 我们使用Mysql5.7.13安装包。 设置我们将下载的Mysql安装包解压到一个文件夹中，例如：/usrs/mysql 然后把这个目录定义为$MYSQL_HOME，然后按如下步骤设置安装环境：  创建$">
+<meta property="og:updated_time" content="2018-01-17T21:30:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux环境下非root用户安装Mysql">
+<meta name="twitter:description" content="有些时候，虽然我们有权访问Linux，但是我们不能以root用户登入或者没有sudo的所有权限，这可能导致安装受阻。但也并非没有办法，下面就介绍在Linux环境下以非root身份安装Mysql。 我们使用Mysql5.7.13安装包。 设置我们将下载的Mysql安装包解压到一个文件夹中，例如：/usrs/mysql 然后把这个目录定义为$MYSQL_HOME，然后按如下步骤设置安装环境：  创建$">
+        
+          <link rel="alternate" href="/atom.xml" title="ZhangCC" type="application/atom+xml">
+        
+        
+          <link rel="icon" href="/favicon32.png" sizes="32x32">
+        
+        
+          <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+        
+        <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
+        <link rel="stylesheet" href="/css/index.css">
+        <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
+                    <header>
+    <div class="header-row row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <a href="/" ><img src="/self.png" class="img-responsive center-block img-circle img-logo" alt="ZhangCC" title="ZhangCC"></a>
+        </div>
+    </div>
+    <div class="header-row row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <p class="header-des text-center">丝丝屡屡，点点滴滴，记录在这里</p>
+        </div>
+    </div>
+    <div class="header-row row">
+        <nav class="navbar navbar-none navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#z-nav" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="z-nav">
+                    <ul class="nav-center nav navbar-nav">
+                        
+                            
+                                <li><a href="/">主页</a></li>
+                            
+                        
+                            
+                                <li><a href="/categories/技术/">技术</a></li>
+                            
+                        
+                            
+                                <li><a href="/categories/散文/">散文</a></li>
+                            
+                        
+                            
+                                <li><a href="/categories/美食/">美食</a></li>
+                            
+                        
+                            
+                                <li><a href="/about/">关于</a></li>
+                            
+                        
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </div>
+</header>
+
+                    <main><article id="post-Linux环境下非root用户安装Mysql" class="article article-type-post" itemscope itemprop="blogPost">
+    
+  
+    <h3 class="article-title text-center" itemprop="name">
+      Linux环境下非root用户安装Mysql
+    </h3>
+  
+
+
+    <div class="article-meta text-center">
+    <span><i class="fa fa-calendar"></i><a href="/archives/2018/01">2018-01-17</a></span>
+    
+    
+    
+    
+</div>
+
+    
+        <div class="article-content" itemprop="articleBody">
+    <p>有些时候，虽然我们有权访问Linux，但是我们不能以root用户登入或者没有sudo的所有权限，这可能导致安装受阻。但也并非没有办法，下面就介绍在Linux环境下以非root身份安装Mysql。</p>
+<p>我们使用<a href="http://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.13-linux-glibc2.5-x86_64.tar.gz" target="_blank" rel="external">Mysql5.7.13</a>安装包。</p>
+<h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>我们将下载的Mysql安装包解压到一个文件夹中，例如：<em>/usrs/mysql</em></p>
+<p>然后把这个目录定义为$MYSQL_HOME，然后按如下步骤设置安装环境：</p>
+<ol>
+<li><p>创建$MYSQL_HOME/data 目录</p>
+</li>
+<li><p>创建$MYSQL_HOME/log 目录</p>
+</li>
+</ol>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>请切换到$MYSQL_HOME目录中并创建两个文件——my.ini和my.cnf</p>
+<p><strong>my.cnf</strong>包含内容如下：</p>
+<pre><code>[mysqld]
+user=&lt;userName&gt;
+</code></pre><p><strong>my.ini</strong>包含内容如下：</p>
+<pre><code>export BASE_DIR=$MYSQL_HOME
+export DATADIR=$BASE_DIR/data
+</code></pre><p>下面的命令初始化Mysql基础数据库和创建初始表：</p>
+<pre><code>./mysqld
+--user=&lt;userName&gt;
+--datadir=$DATADIR
+--basedir=$MYSQL_HOME
+--log-error=$MYSQL_HOME/log/mysq.err
+--pid-file=$MYSQL_HOME/socket
+--port=3306
+--initialize
+</code></pre><p>日志文件将存储在$MYSQL_HOMOE/log/mysql.err文件中。安装过后，你打开这个文件，你可以找到root的临时密码，就如下面这样：</p>
+<pre><code>A temporary password is generated for root#@localhost: Xfu(%qmrk7)y
+</code></pre><p>先记住它，之后再修改。</p>
+<h2 id="Mysql守护进程"><a href="#Mysql守护进程" class="headerlink" title="Mysql守护进程"></a>Mysql守护进程</h2><h3 id="startup-sh"><a href="#startup-sh" class="headerlink" title="startup.sh"></a>startup.sh</h3><p>在$MYSQL_HOME/bin目录中创建startup.sh文件，包含内容如下：</p>
+<pre><code>export BASE=$MYSQL_HOME
+$BASE/bin/mysqld
+--user=&lt;userName&gt;
+--datadir=$BASE/data
+--basedir=$BASE
+--log-error=$BASE/log/mysql.err
+--pid-file=$BASE/mysql.pid
+--socket=$BASE/socker
+--port=3306
+</code></pre><p>通过如下命令修改为可执行文件：</p>
+<pre><code>chmod 755 startup.sh
+</code></pre><h3 id="shutdown-sh"><a href="#shutdown-sh" class="headerlink" title="shutdown.sh"></a>shutdown.sh</h3><p>这个文件放置在/srv/tempo/pgms/mysql/bin文件夹中。内容如下：</p>
+<pre><code>export BASE=/srv/tempo/pgms/mysql
+$BASE/bin/mysqladmin
+--socket=$BASE/socket shutdown -u root -p
+</code></pre><p>这个文件也需要修改为可执行的：</p>
+<pre><code>chmod 755 shutdown.sh
+</code></pre><h2 id="启动Mysql"><a href="#启动Mysql" class="headerlink" title="启动Mysql"></a>启动Mysql</h2><p>切换到$MYSQL_HOMOE目录下，执行<em>startup.sh</em>脚本：</p>
+<pre><code>./startup.sh
+</code></pre><h2 id="关闭Mysql"><a href="#关闭Mysql" class="headerlink" title="关闭Mysql"></a>关闭Mysql</h2><p>切换到$MYSQL_HOME目录下，执行<em>shutdown.sh</em>脚本：</p>
+<pre><code>./shutdown.sh
+</code></pre><p>你可能需要输入密码。</p>
+<p>这样就可以了，当然如果需要在系统启动时就运行Mysql，就需要root权限了。</p>
+<p>如上就是如何以非用户身份在Linux下安装Mysql。</p>
+
+</div>
+
+        
+<nav class="article-nav" id="articleNav">
+    
+    
+        <a class="article-nav-link" href="/2018/01/17/Mac中iterm快捷键/" tittle="Mac中iterm快捷键">下一篇</a></a>
+  
+</nav>
+
+
+    
+    
+</article>
+
+</main>
+                    <footer>
+    <p class="copyright text-center">©2017 基于Hexo搭建  主题Jane  作者ZhangCC </p>
+</footer>
+
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</html>
+
