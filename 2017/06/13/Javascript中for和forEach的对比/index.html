@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8" />
+        
+        <title>Javascript中for和forEach的对比 | ZhangCC</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="description" content="在Javascript中可以通过for循环和forEach() 方法遍历数组，那么这两者之间有什么区别呢？在本文中我将讨论它们的工作机制以及在什么情况下选择哪一种方式遍历数组更合适。 工作机制我们首先看看for循环和forEach方法的工作机制。 //for循环 for (var i = 0; i &amp;lt; 3; i++) {     console.log(i); } //1 2 3 可以看出f">
+<meta name="keywords" content="语法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript中for和forEach的对比">
+<meta property="og:url" content="http://www.zhangcc.me/2017/06/13/Javascript中for和forEach的对比/index.html">
+<meta property="og:site_name" content="ZhangCC">
+<meta property="og:description" content="在Javascript中可以通过for循环和forEach() 方法遍历数组，那么这两者之间有什么区别呢？在本文中我将讨论它们的工作机制以及在什么情况下选择哪一种方式遍历数组更合适。 工作机制我们首先看看for循环和forEach方法的工作机制。 //for循环 for (var i = 0; i &amp;lt; 3; i++) {     console.log(i); } //1 2 3 可以看出f">
+<meta property="og:updated_time" content="2017-06-14T12:52:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Javascript中for和forEach的对比">
+<meta name="twitter:description" content="在Javascript中可以通过for循环和forEach() 方法遍历数组，那么这两者之间有什么区别呢？在本文中我将讨论它们的工作机制以及在什么情况下选择哪一种方式遍历数组更合适。 工作机制我们首先看看for循环和forEach方法的工作机制。 //for循环 for (var i = 0; i &amp;lt; 3; i++) {     console.log(i); } //1 2 3 可以看出f">
+        
+          <link rel="alternate" href="/atom.xml" title="ZhangCC" type="application/atom+xml">
+        
+        
+          <link rel="icon" href="/favicon32.png" sizes="32x32">
+        
+        
+          <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+        
+        <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
+        <link rel="stylesheet" href="/css/index.css">
+        <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
+                    <header>
+    <div class="header-row row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <a href="/" ><img src="/self.png" class="img-responsive center-block img-circle img-logo" alt="ZhangCC" title="ZhangCC"></a>
+        </div>
+    </div>
+    <div class="header-row row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <p class="header-des text-center">丝丝屡屡，点点滴滴，记录在这里</p>
+        </div>
+    </div>
+    <div class="header-row row">
+        <nav class="navbar navbar-none navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#z-nav" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="z-nav">
+                    <ul class="nav-center nav navbar-nav">
+                        
+                            
+                                <li><a href="/">主页</a></li>
+                            
+                        
+                            
+                                <li><a href="/categories/技术/">技术</a></li>
+                            
+                        
+                            
+                                <li><a href="/categories/散文/">散文</a></li>
+                            
+                        
+                            
+                                <li><a href="/categories/美食/">美食</a></li>
+                            
+                        
+                            
+                                <li><a href="/about/">关于</a></li>
+                            
+                        
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </div>
+</header>
+
+                    <main><article id="post-Javascript中for和forEach的对比" class="article article-type-post" itemscope itemprop="blogPost">
+    
+  
+    <h3 class="article-title text-center" itemprop="name">
+      Javascript中for和forEach的对比
+    </h3>
+  
+
+
+    <div class="article-meta text-center">
+    <span><i class="fa fa-calendar"></i><a href="/archives/2017/06">2017-06-14</a></span>
+    
+    
+    
+        <span>
+            <i class="fa fa-bookmark"></i><a class="article-category-link" href="/categories/技术/">技术</a>·<a class="article-category-link" href="/categories/技术/Javascript/">Javascript</a>
+        </span>
+    
+    
+        <span>
+            <i class="fa fa-tags"></i><a class="article-tag-link" href="/tags/语法/">语法</a>
+        </span>
+    
+</div>
+
+    
+        <div class="article-content" itemprop="articleBody">
+    <p>在Javascript中可以通过for循环和forEach() 方法遍历数组，那么这两者之间有什么区别呢？在本文中我将讨论它们的工作机制以及在什么情况下选择哪一种方式遍历数组更合适。</p>
+<h2 id="工作机制"><a href="#工作机制" class="headerlink" title="工作机制"></a>工作机制</h2><p>我们首先看看for循环和forEach方法的工作机制。</p>
+<pre><code>//for循环
+for (var i = 0; i &lt; 3; i++) {
+    console.log(i);
+}
+//1 2 3
+</code></pre><p>可以看出for循环有3个声明：在循环开始时，首先之行声明<code>var i = 0;</code>，然后声明<code>i &lt; 3</code>用于控制内部代码的运行条件，最后的声明<code>i++</code>是在每次循环之后之行。这个for循环的之行结果是之行<code>console.log(i)</code>三次，分别输出1，2，3 。</p>
+<p>如果我们有一个数组是产品列表：</p>
+<pre><code>var products = [
+    { name: &apos;Running shoes&apos;, price: 75 },
+    { name: &apos;Golf shoes&apos;,    price: 85 },
+    { name: &apos;Dress shoes&apos;,   price: 95 },
+    { name: &apos;Walking shoes&apos;, price: 65 },
+    { name: &apos;Sandals&apos;,       price: 55 }
+]
+</code></pre><p>如果我们想通过for循环遍历每一件产品，我们可以修改运行条件，并且用i当作数组下标，获取当前的产品：</p>
+<pre><code>for (var i = 0; i &lt; products.length; i++) {
+    console.log(products[i]);
+}
+</code></pre><p>当然，用forEach方法也可以达到同样目的：</p>
+<pre><code>products.forEach(function(product, index) {
+    console.log(product);
+});
+</code></pre><p>forEach()方法会对数组中的每一项之行给定的函数。因为products是数组，所以继承了Array.prototype的所有方法，所以调用forEach()方法时，会对数组中的每一项都之行一次函数。</p>
+<p>那么在实际应用中，我们又该选择哪一个呢？</p>
+<h2 id="for-vs-forEach"><a href="#for-vs-forEach" class="headerlink" title="for vs forEach()"></a>for vs forEach()</h2><h3 id="1-使用forEach-方法时更易读"><a href="#1-使用forEach-方法时更易读" class="headerlink" title="1. 使用forEach()方法时更易读"></a>1. 使用forEach()方法时更易读</h3><p>虽然for循环和forEach()方法都可以遍历数组，但是在大多数情况下我更乐意选择forEach()。首先就因为forEach()相对于for循环更容易阅读。为了获取当前项，我们不需要通过一个临时变量<code>i</code>访问<code>products[i]</code>。虽然现在看起来也不是那么难读，可是当需要多层循环时，可能就会让你感到头痛：</p>
+<pre><code>for (var i = 0; i &lt; products.length; i++) {
+    console.log(products(i));
+    for (var j = 0; j &lt; products[i].sizes.length; j++) {
+        console.log(products[i].sizes[j]);
+    }
+}
+</code></pre><p>是不是变的难以阅读？当你增加更多操作时(不仅仅是<code>console.log</code>)问题会更严重。当然你也可以通过定义一些变量改善它：</p>
+<pre><code>for (var i = 0; i &lt; products.length; i++) {
+    var product = products[i];
+    console.log(product);
+    for (var j = 0; j &lt; product.sizes.length; j++) {
+        var size = product.sizes[j];
+        console.log(size);
+    }
+}
+</code></pre><p>虽然定义了两个变量<code>product</code>、<code>size</code>，但这也是杯水车薪，更何况还要使用临时变量<code>i</code>、<code>j</code>。如果我们使用forEach()方法时：</p>
+<pre><code>products.forEach(function(product) {
+    product.sizes.forEach(function(size) {
+        console.log(size);
+    });
+});
+</code></pre><p>这样做不仅精简了代码，而且省去了临时变量<code>i</code>、<code>j</code>。是不是更容易阅读？</p>
+<h3 id="2-使用forEach-方法减少出现off-by-one错误"><a href="#2-使用forEach-方法减少出现off-by-one错误" class="headerlink" title="2. 使用forEach()方法减少出现off-by-one错误"></a>2. 使用forEach()方法减少出现<em>off-by-one</em>错误</h3><p>维基百科中对<a href="https://en.wikipedia.org/wiki/Off-by-one_error" target="_blank" rel="external">off-by-one</a>的定义如下：</p>
+<blockquote>
+<p><em>An off-by-one error (OBOE), also commonly known as an OBOB (off-by-one bug) or “that extra inch you didn’t really want”, is a logic error involving the discrete equivalent of a boundary condition. It often occurs in computer programming when an iterative loop iterates one time too many or too few.</em></p>
+</blockquote>
+<p>在一些情况下会出现<em>off-by-one</em>错误，比如：</p>
+<pre><code>for (var i = 0; i &lt;= products.length; i++) {
+    console.log(products[i]);
+}
+</code></pre><p>这和第一段代码是不是很像，但是里面存在一个细微的差别，在写判断条件时<code>&lt;</code>替换成了<code>&lt;=</code>，这就导致循环的内容就会多运行一次。虽然只是一个简单的例子，但是如果不小心点话，可能到处都是这种错误。而使用forEach()方法，你就可以不用考虑判定条件了，这样就可以减少出现<em>off-by-one</em>错误。</p>
+<h3 id="3-中断循环跳出"><a href="#3-中断循环跳出" class="headerlink" title="3. 中断循环跳出"></a>3. 中断循环跳出</h3><p>有时我也需要使用for循环而不是forEach()方法，因为我要中断循环跳出。比如我有很多产品列表，而我只需要找到其中符合条件的一个进行操作。如果我采用forEach()方法，我就需要遍历每一条产品，因而产生不必要的迭代，如果数组长度过长会严重影响性能。如果采用for循环，就可以及时中断循环跳出。例如：</p>
+<pre><code>for (var i = 0; i &lt; products.length; i++) {
+    if (matchesSomeCriteria(products[i])) {
+        doSomething();
+        break;
+    }
+}
+</code></pre><p>采用<code>break</code>，可以随时中断循环跳出。值得一提的是在ES6中，有一个数组方法<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/find" target="_blank" rel="external">find()</a>可以用于查找数组元素，和上面的功能类似。但是并目前并不是所有浏览器都支持它，所以如果你要使用它最好写一个polyfill。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文中并没有说一定要选择使用<code>for</code>循环或者<code>forEach()</code>方法，但是我已经列出了常用的使用情况。本文中没有描述性能方面，如果要对比两者之间的性能，<code>for</code>循环更胜一筹。但是，通常情况下这种性能优势并不会起太大作用，这属于过早优化。所以为了长久维护优先选择可读性。如果<code>forEach()</code>真的影响性能时，那就使用<code>for</code>循环试试。</p>
+
+</div>
+
+        
+<nav class="article-nav" id="articleNav">
+    
+        <a class="article-nav-link" href="/2018/01/17/zhangccc/" tittle="zhangccc">上一篇</a>
+    
+    
+        <a class="article-nav-link" href="/2017/06/11/Macbook环境下phpstorm常用快捷键/" tittle="Macbook环境下phpstorm常用快捷键">下一篇</a></a>
+  
+</nav>
+
+
+    
+    
+</article>
+
+</main>
+                    <footer>
+    <p class="copyright text-center">©2017 基于Hexo搭建  主题Jane  作者ZhangCC </p>
+</footer>
+
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</html>
+
