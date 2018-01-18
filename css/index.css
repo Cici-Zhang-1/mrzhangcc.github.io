@@ -51,6 +51,10 @@ header .header-row {
 .navbar-none .navbar-nav > li > a {
     color: #777;
     border-bottom: 2px solid #fff;
+    -webkit-transition: border 1s linear, color 1s linear;
+    -o-transition: border 1s linear, color 1s linear;
+    -moz-transition: border 1s linear, color 1s linear;
+    transition: border 1s linear, color 1s linear;
 }
 .container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
     text-align: center;
@@ -137,10 +141,25 @@ article:not(:last-child){
     text-decoration: none;
 }
 
+.article-title a {
+    /*border-bottom: 2px none #02a93d;
+    -webkit-transition: border 1s linear;
+    -o-transition: border 1s linear;
+    -moz-transition: border 1s linear;
+    transition: border 1s linear;*/
+}
+
 .article-title a:hover,
 .article-title a:focus {
     border-bottom: 2px solid #02a93d;
 }
+/*
+.article-title a:hover::after {
+    width: 10px;
+    height: 10px;
+    border: 1px solid #02a93d;
+    content: "";
+}*/
 
 .article-meta {
     font-size: 1.6rem;
