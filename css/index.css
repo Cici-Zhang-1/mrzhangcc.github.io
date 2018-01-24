@@ -206,6 +206,19 @@ article:not(:last-child){
     padding: 15px;
 }
 
+.article-content .article-content-center{
+    text-align: center;
+}
+.article-content > p:not(.article-content-center) {
+    font-weight: normal;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-family: "PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei","Helvetica Neue",Arial,sans-serif;
+    line-height: 2.0em;
+    word-spacing: 2px;
+    text-indent: 2em;
+}
+
 .article-nav {
     text-align: center;
     margin: 10px 0;
