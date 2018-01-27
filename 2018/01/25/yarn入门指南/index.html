@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+    <head>
+        <meta charset="utf-8" />
+        
+        <title>yarn入门指南 | ZhangCC</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="description" content="Yarn—快速、可靠、安全的依赖管理工具 简介Yarn是一个依赖管理工具。它不仅能够管理你的代码，也可以让你通过包的方式共享自己的代码。它有三个特性  Yarn 缓存了每个下载过的包，所以再次使用时无需重复下载。 同时利用并行下载以最大化资源利用率，因此安装速度更快 在执行代码之前，Yarn 会通过算法校验每个安装包的完整性 使用详细、简洁的锁文件格式和明确的安装算法，Yarn 能够保证在不同系统">
+<meta name="keywords" content="yarn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="yarn入门指南">
+<meta property="og:url" content="http://www.zhangcc.me/2018/01/25/yarn入门指南/index.html">
+<meta property="og:site_name" content="ZhangCC">
+<meta property="og:description" content="Yarn—快速、可靠、安全的依赖管理工具 简介Yarn是一个依赖管理工具。它不仅能够管理你的代码，也可以让你通过包的方式共享自己的代码。它有三个特性  Yarn 缓存了每个下载过的包，所以再次使用时无需重复下载。 同时利用并行下载以最大化资源利用率，因此安装速度更快 在执行代码之前，Yarn 会通过算法校验每个安装包的完整性 使用详细、简洁的锁文件格式和明确的安装算法，Yarn 能够保证在不同系统">
+<meta property="og:updated_time" content="2018-01-26T15:32:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="yarn入门指南">
+<meta name="twitter:description" content="Yarn—快速、可靠、安全的依赖管理工具 简介Yarn是一个依赖管理工具。它不仅能够管理你的代码，也可以让你通过包的方式共享自己的代码。它有三个特性  Yarn 缓存了每个下载过的包，所以再次使用时无需重复下载。 同时利用并行下载以最大化资源利用率，因此安装速度更快 在执行代码之前，Yarn 会通过算法校验每个安装包的完整性 使用详细、简洁的锁文件格式和明确的安装算法，Yarn 能够保证在不同系统">
+        
+          <link rel="alternate" href="/atom.xml" title="ZhangCC" type="application/atom+xml">
+        
+        
+          <link rel="icon" href="/favicon32.png" sizes="32x32">
+        
+        
+          <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+        
+        <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
+        <link rel="stylesheet" href="/css/index.css">
+        <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
+                    <header>
+    <div class="header-row row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <a class="header-img" href="/" ><img src="/self.png" class="img-responsive center-block img-circle img-logo" alt="ZhangCC" title="ZhangCC"></a>
+        </div>
+    </div>
+    <div class="header-row row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <p class="header-des text-center">丝丝屡屡，点点滴滴，记录在这里</p>
+        </div>
+    </div>
+    <div class="header-row row">
+        <nav class="navbar navbar-none navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#z-nav" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="z-nav">
+                    <ul class="nav-center nav navbar-nav">
+                        
+                            
+                                <li><a href="/" title="主页">主页</a></li>
+                            
+                        
+                            
+                                <li><a href="/categories/技术/" title="技术">技术</a></li>
+                            
+                        
+                            
+                                <li><a href="/categories/散文/" title="散文">散文</a></li>
+                            
+                        
+                            
+                                <li><a href="/categories/美食/" title="美食">美食</a></li>
+                            
+                        
+                            
+                                <li><a href="/about/" title="关于">关于</a></li>
+                            
+                        
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </div>
+</header>
+
+                    <main><article id="post-yarn入门指南" class="article article-type-post" itemscope itemprop="blogPost">
+    
+  
+    <h3 class="article-title text-center" itemprop="name">
+      yarn入门指南
+    </h3>
+  
+
+
+    <div class="article-meta text-center">
+    <span><i class="fa fa-calendar"></i><a href="/archives/2018/01">2018-01-26</a></span>
+    
+    
+    
+        <span>
+            <i class="fa fa-bookmark"></i><a class="article-category-link" href="/categories/技术/">技术</a>·<a class="article-category-link" href="/categories/技术/工具/">工具</a>
+        </span>
+    
+    
+        <span>
+            <i class="fa fa-tags"></i><a class="article-tag-link" href="/tags/yarn/">yarn</a>
+        </span>
+    
+</div>
+
+    
+        <div class="article-content" itemprop="articleBody">
+    <p>Yarn—快速、可靠、安全的依赖管理工具</p>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Yarn是一个依赖管理工具。它不仅能够管理你的代码，也可以让你通过包的方式共享自己的代码。它有三个特性</p>
+<ul>
+<li>Yarn 缓存了每个下载过的包，所以再次使用时无需重复下载。 同时利用并行下载以最大化资源利用率，因此安装速度更快</li>
+<li>在执行代码之前，Yarn 会通过算法校验每个安装包的完整性</li>
+<li>使用详细、简洁的锁文件格式和明确的安装算法，Yarn 能够保证在不同系统上无差异的工作</li>
+</ul>
+<h3 id="MacOS环境下安装Yarn"><a href="#MacOS环境下安装Yarn" class="headerlink" title="MacOS环境下安装Yarn"></a>MacOS环境下安装Yarn</h3><p>由于笔者使用的是MacOS开发环境，所以只记录在MacOS操作环境下，如何通过<a href="https://brew.sh/index_zh-cn.html" title="Homebrew" target="_blank" rel="external">Homebrew</a>包管理工具安装Yarn。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">brew update</div><div class="line">brew install yarn</div><div class="line"></div><div class="line">yarn --version</div></pre></td></tr></table></figure>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><p>为了更为直观理解，我以在一个项目hello中安装Bootstrap为例介绍常用的Yarn命令，以<code>$</code>开头是我在终端执行的命令。</p>
+<p>初始化一个项目命令格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yarn init</div></pre></td></tr></table></figure>
+<p>Bootstrap案例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">**$ yarn init**</div><div class="line">question name (hello):</div><div class="line">question version (1.0.0):</div><div class="line">question description: A project of hello</div><div class="line">question entry point (index.js):</div><div class="line">question repository url:</div><div class="line">question author: Cici</div><div class="line">question license (MIT):</div><div class="line">question private:</div><div class="line">success Saved package.json</div><div class="line">✨  Done in 27.50s.</div><div class="line"></div><div class="line">**$ ls**</div><div class="line">package.json</div><div class="line"></div><div class="line">**$ cat package.json**</div><div class="line">&#123;</div><div class="line">  &quot;name&quot;: &quot;hello&quot;,</div><div class="line">  &quot;version&quot;: &quot;1.0.0&quot;,</div><div class="line">  &quot;description&quot;: &quot;A project of hello&quot;,</div><div class="line">  &quot;main&quot;: &quot;index.js&quot;,</div><div class="line">  &quot;author&quot;: &quot;Cici&quot;,</div><div class="line">  &quot;license&quot;: &quot;MIT&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>项目中添加一个依赖包命令格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yarn add [package]</div><div class="line">yarn add [package]@[version]</div><div class="line">yarn add [package]@[tag]</div></pre></td></tr></table></figure>
+<p>Bootstrap案例添加bootstrap包：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line">**$ yarn add bootstrap**</div><div class="line">[1/4] 🔍  Resolving packages...</div><div class="line">[2/4] 🚚  Fetching packages...</div><div class="line">[3/4] 🔗  Linking dependencies...</div><div class="line">warning &quot; &gt; bootstrap@4.0.0&quot; has unmet peer dependency &quot;jquery@1.9.1 - 3&quot;.</div><div class="line">warning &quot; &gt; bootstrap@4.0.0&quot; has unmet peer dependency &quot;popper.js@^1.12.9&quot;.</div><div class="line">[4/4] 📃  Building fresh packages...</div><div class="line">success Saved lockfile.</div><div class="line">success Saved 1 new dependency.</div><div class="line">└─ bootstrap@4.0.0</div><div class="line">✨  Done in 1.10s.</div><div class="line"></div><div class="line">**$ yarn add &quot;jquery@1.9.1 - 3&quot;**</div><div class="line">[1/4] 🔍  Resolving packages...</div><div class="line">[2/4] 🚚  Fetching packages...</div><div class="line">[3/4] 🔗  Linking dependencies...</div><div class="line">warning &quot; &gt; bootstrap@4.0.0&quot; has unmet peer dependency &quot;popper.js@^1.12.9&quot;.</div><div class="line">[4/4] 📃  Building fresh packages...</div><div class="line">success Saved lockfile.</div><div class="line">success Saved 1 new dependency.</div><div class="line">└─ jquery@3.3.1</div><div class="line">✨  Done in 0.63s.</div><div class="line"></div><div class="line">**$ yarn add &quot;popper.js@^1.12.9&quot;**</div><div class="line">[1/4] 🔍  Resolving packages...</div><div class="line">[2/4] 🚚  Fetching packages...</div><div class="line">[3/4] 🔗  Linking dependencies...</div><div class="line">[4/4] 📃  Building fresh packages...</div><div class="line">success Saved lockfile.</div><div class="line">success Saved 1 new dependency.</div><div class="line">└─ popper.js@1.12.9</div><div class="line">✨  Done in 0.45s.</div><div class="line"></div><div class="line">**$ ls**</div><div class="line">node_modules package.json yarn.lock</div><div class="line"></div><div class="line">**$ cat package.json**</div><div class="line">&#123;</div><div class="line">  &quot;name&quot;: &quot;hello&quot;,</div><div class="line">  &quot;version&quot;: &quot;1.0.0&quot;,</div><div class="line">  &quot;description&quot;: &quot;A project of hello&quot;,</div><div class="line">  &quot;main&quot;: &quot;index.js&quot;,</div><div class="line">  &quot;author&quot;: &quot;Cici&quot;,</div><div class="line">  &quot;license&quot;: &quot;MIT&quot;,</div><div class="line">  &quot;dependencies&quot;: &#123;</div><div class="line">    &quot;bootstrap&quot;: &quot;^4.0.0&quot;,</div><div class="line">    &quot;jquery&quot;: &quot;1.9.1 - 3&quot;,</div><div class="line">    &quot;popper.js&quot;: &quot;^1.12.9&quot;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">**$ ls ./node_modules/**</div><div class="line">bootstrap jquery    popper.js</div></pre></td></tr></table></figure></p>
+<p>项目中更新一个依赖包命令格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yarn upgrade [package]</div><div class="line">yarn upgrade [package]@[version]</div><div class="line">yarn upgrade [package]@[tag]</div></pre></td></tr></table></figure>
+<p>Bootstrap案例更新包：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">**$ yarn upgrade bootstrap**</div><div class="line">[1/4] 🔍  Resolving packages...</div><div class="line">[2/4] 🚚  Fetching packages...</div><div class="line">[3/4] 🔗  Linking dependencies...</div><div class="line">[4/4] 📃  Rebuilding all packages...</div><div class="line">success Saved lockfile.</div><div class="line">success Saved 1 new dependency.</div><div class="line">└─ bootstrap@4.0.0</div><div class="line">✨  Done in 0.39s.</div></pre></td></tr></table></figure></p>
+<p>项目中删除一个依赖包命令格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yarn remove [package]</div></pre></td></tr></table></figure>
+<p>Bootstrap案例删除依赖包Bootstrap：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">**$ yarn remove bootstrap**</div><div class="line">[1/2] Removing module bootstrap...</div><div class="line">[2/2] Regenerating lockfile and installing missing dependencies...</div><div class="line">success Uninstalled packages.</div><div class="line">✨  Done in 0.34s.</div><div class="line"></div><div class="line">**$ cat package.json**</div><div class="line">&#123;</div><div class="line">  &quot;name&quot;: &quot;hello&quot;,</div><div class="line">  &quot;version&quot;: &quot;1.0.0&quot;,</div><div class="line">  &quot;description&quot;: &quot;A project of hello&quot;,</div><div class="line">  &quot;main&quot;: &quot;index.js&quot;,</div><div class="line">  &quot;author&quot;: &quot;Cici&quot;,</div><div class="line">  &quot;license&quot;: &quot;MIT&quot;,</div><div class="line">  &quot;dependencies&quot;: &#123;</div><div class="line">    &quot;jquery&quot;: &quot;1.9.1 - 3&quot;,</div><div class="line">    &quot;popper.js&quot;: &quot;^1.12.9&quot;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">**$ ls ./node_modules/**</div></pre></td></tr></table></figure></p>
+<p>项目中安装所有依赖包命令格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yarn</div><div class="line">// or</div><div class="line">yarn install</div></pre></td></tr></table></figure>
+<p>Bootstrap案例安装依赖包：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">**$ cat package.json**</div><div class="line">&#123;</div><div class="line">  &quot;name&quot;: &quot;hello&quot;,</div><div class="line">  &quot;version&quot;: &quot;1.0.0&quot;,</div><div class="line">  &quot;description&quot;: &quot;A project of hello&quot;,</div><div class="line">  &quot;main&quot;: &quot;index.js&quot;,</div><div class="line">  &quot;author&quot;: &quot;Cici&quot;,</div><div class="line">  &quot;license&quot;: &quot;MIT&quot;,</div><div class="line">  &quot;dependencies&quot;: &#123;</div><div class="line">    &quot;bootstrap&quot;: &quot;^4.0.0&quot;,</div><div class="line">    &quot;jquery&quot;: &quot;1.9.1 - 3&quot;,</div><div class="line">    &quot;popper.js&quot;: &quot;^1.12.9&quot;,</div><div class="line">    &quot;chart.js&quot;: &quot;^1.0&quot;      //手动添加的项目依赖</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">**$ yarn install**</div><div class="line">[1/4] 🔍  Resolving packages...</div><div class="line">[2/4] 🚚  Fetching packages...</div><div class="line">[3/4] 🔗  Linking dependencies...</div><div class="line">[4/4] 📃  Building fresh packages...</div><div class="line">success Saved lockfile.</div><div class="line">✨  Done in 0.55s.</div></pre></td></tr></table></figure></p>
+
+</div>
+
+        
+<nav class="article-nav" id="articleNav">
+    
+    
+        <a class="article-nav-link" href="/2018/01/23/生活需要做减法/" tittle="生活需要做减法">下一篇</a></a>
+  
+</nav>
+
+
+    
+    
+</article>
+
+</main>
+                    <footer>
+    <p class="copyright text-center">©2018 基于Hexo搭建  主题<a href="https://github.com/mrzhangcc/hexo-theme-sim" title="hexo-theme-sim">hexo-theme-sim</a>  作者<a href="http://www.zhangcc.me" title="Cici">Cici</a></p>
+</footer>
+
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</html>
+
