@@ -209,6 +209,11 @@ article:not(:last-child){
 .article-content .article-content-center{
     text-align: center;
 }
+
+.article-content .article-content-center img{
+    max-width: 100%;
+}
+
 .article-content > p:not(.article-content-center) {
     font-weight: normal;
     font-size: 1.8rem;
@@ -218,6 +223,8 @@ article:not(:last-child){
     word-spacing: 2px;
     text-indent: 2em;
 }
+
+
 
 .article-nav {
     text-align: center;
