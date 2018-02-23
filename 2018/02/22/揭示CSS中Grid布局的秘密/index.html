@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://www.zhangcc.me/2018/02/22/揭示CSS中Grid布局的秘密/grid_auto_flow.jpg">
 <meta property="og:image" content="http://www.zhangcc.me/2018/02/22/揭示CSS中Grid布局的秘密/overlay.jpg">
 <meta property="og:image" content="http://www.zhangcc.me/2018/02/22/揭示CSS中Grid布局的秘密/min_content.jpg">
-<meta property="og:updated_time" content="2018-02-22T22:44:55.000Z">
+<meta property="og:updated_time" content="2018-02-23T17:26:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="揭示CSS中Grid布局的秘密">
 <meta name="twitter:description" content="从2017年3月CSS Grid布局在浏览器中推出到现在为止，超过70%访客都会选择支持Grid布局。这个数据还在持续增长，并且随着Edge发布其更新的支持，它们将继续提高。 我希望您有已经机会探索了CSS Grid布局的一些特性，本文的目的在于展现一些您可能忽略的特性。我们也会初探一些可能会在未来规范中引入的特性。 01. 函数minmax()同其它布局方法不同，我们不需要在项目层面设置尺寸，在">
@@ -135,7 +135,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.grid &#123;</div><div class="line">  display: grid;</div><div class="line">  grid-template-columns: 1.2fr 1fr;</div><div class="line">  grid-template-rows: minmax(150px, auto) minmax(300px,auto);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><img src="minimum_height.jpg" alt="minimum height"><br>通过设置一行最小高度，即使内容很短，我们也可以确保设计中行的尺寸智能伸缩。</p>
 <p><img src="minimax_function.jpg" alt="minmax()_function"><br><code>minmax()</code>函数把最大尺寸设置为<code>auto</code>意味这内容即使很多尺寸很大不会发生溢出</p>
-<h3 id="auto-fill与auto-fit"><a href="#auto-fill与auto-fit" class="headerlink" title="auto-fill与auto-fit"></a><code>auto-fill</code>与<code>auto-fit</code></h3><p><code>Flexbox</code>可以让我们不依赖于<code>Media</code>询问就可以做响应式设计。<code>Grid</code>就更近一步，开动弹性设计模式，项目在两维尺度：行和列上都可以整齐排列。其中一种有用都模式是在容器中可以填充任意多个列，而完成这个我们需要使用两个关键字：<code>auto-fill</code>和<code>auto-fit</code>。</p>
+<h3 id="02-auto-fill与auto-fit"><a href="#02-auto-fill与auto-fit" class="headerlink" title="02. auto-fill与auto-fit"></a>02. <code>auto-fill</code>与<code>auto-fit</code></h3><p><code>Flexbox</code>可以让我们不依赖于<code>Media</code>询问就可以做响应式设计。<code>Grid</code>就更近一步，开动弹性设计模式，项目在两维尺度：行和列上都可以整齐排列。其中一种有用都模式是在容器中可以填充任意多个列，而完成这个我们需要使用两个关键字：<code>auto-fill</code>和<code>auto-fit</code>。</p>
 <p>To have as many 200 pixel column tracks as will fit into a container use a track listing of:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.grid1 &#123;</div><div class="line">  display: grid;</div><div class="line">  grid-template-columns: repeat(auto-fill, 200px);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>为了在保持列弹性伸展同志，每列最小尺寸是200px，我们使用在前一节介绍都<code>minmax()</code>函数。我们可以创建列最小尺寸为<code>200px</code>而最大为<code>1fr</code>。当计算出可以填充多少个<code>200px</code>列，浏览器会在所有列之间平均分配剩余空间。</p>
@@ -143,7 +143,7 @@
 <p><img src="auto_fill.jpg" alt="auto fill"></p>
 <p>这张图展示了采用固定宽度和<code>auto-fill</code>属性与<code>minmax()</code>和<code>auto-fill</code>在创建弹性尺寸列时的区别</p>
 <p>我在这使用了关键字<code>auto-fill</code>，这在即使没有内容时，也会为track保留空间。如果你采用的是另一个关键字<code>auto-fit</code>，任何空的track都会坍塌，它的空间会分配给其它track。</p>
-<h3 id="密度填充模式"><a href="#密度填充模式" class="headerlink" title="密度填充模式"></a>密度填充模式</h3><p>当你将一个元素声明为<code>display: grid</code>时，所有的直接后代元素都是grid项目，所有的项目都会在grid上自动排列。这都是基于规范中定义的<strong>auto-placement</strong>规则。</p>
+<h3 id="03-密度填充模式"><a href="#03-密度填充模式" class="headerlink" title="03. 密度填充模式"></a>03. 密度填充模式</h3><p>当你将一个元素声明为<code>display: grid</code>时，所有的直接后代元素都是grid项目，所有的项目都会在grid上自动排列。这都是基于规范中定义的<strong>auto-placement</strong>规则。</p>
 <p>如果有的项目是span track， 这就意味着这个项目不能填充track，它会在grid上新建一行。默认情况，Grid渐进执行并且按照项目在源码中的顺序展示。</p>
 <p>但是，如果您将<code>grid-auto-flow</code>的值设置为<code>dense</code>，Grid将离开这些空白后开始回溯。如果它发现某个项目可以填充已经留下的间隙，他会从原来的顺序中抽出，然后填充间隙。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.grid &#123;</div><div class="line">  display: grid;</div><div class="line">  grid-auto-flow: dense;</div><div class="line">  grid-template-columns: repeat(auto-fill,minmax(200px, 1fr));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -152,7 +152,7 @@
 <p><img src="grid_auto_flow.jpg" alt="grid-auto-flow"></p>
 <p>当使用<code>grid-auto-flow: dense</code>时，会填充原来当空隙</p>
 <p>当你要展示当内容没有逻辑顺序时，这会非常有用。但是，当访客时通过键盘，例如：<code>tab</code>键从一个项目切换到另一个项目时，这会变的时分难操作。所以使用时要万分小心并且要测试！</p>
-<h3 id="魔法行与魔法区域"><a href="#魔法行与魔法区域" class="headerlink" title="魔法行与魔法区域"></a>魔法行与魔法区域</h3><p>当你用<code>grid-template-areas</code>方法布局内容时，你时在grid中创建一个命名区域。这会为行和列创建一系列命名当行列，通过使用区域名称，但是会在末尾加上<code>-start</code>和<code>-end</code>。下面这个列子，我已经使用通过定位我的网格区域而创建的命名行列来定位覆盖层。</p>
+<h3 id="04-魔法行与魔法区域"><a href="#04-魔法行与魔法区域" class="headerlink" title="04. 魔法行与魔法区域"></a>04. 魔法行与魔法区域</h3><p>当你用<code>grid-template-areas</code>方法布局内容时，你时在grid中创建一个命名区域。这会为行和列创建一系列命名当行列，通过使用区域名称，但是会在末尾加上<code>-start</code>和<code>-end</code>。下面这个列子，我已经使用通过定位我的网格区域而创建的命名行列来定位覆盖层。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">.grid &#123;</div><div class="line">  display: grid;</div><div class="line">  grid-template-columns: 1fr 2fr 1fr;</div><div class="line">  grid-auto-rows: minmax(100px, auto);</div><div class="line">  grid-template-areas:</div><div class="line">    &quot;sd1 content sd2&quot;</div><div class="line">    &quot;sd1 footer  sd2&quot;;</div><div class="line">&#125;</div><div class="line">.side1 &#123; grid-area: sd1; &#125;</div><div class="line">.side2 &#123; grid-area: sd2; &#125;</div><div class="line">.content &#123; grid-area: content; &#125;</div><div class="line">.footer &#123; grid-area: footer; &#125;</div><div class="line"></div><div class="line">.grid .overlay &#123;</div><div class="line">  grid-column: sd1-start / sd2-end;</div><div class="line">  grid-row: content-start / footer-end;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>当你使用命名当网格行列时，可以做反向工作。如果你以<code>-start</code>和<code>-end</code>结尾方式命名行和列，你将会将使用主名称创建一个命名区域。</p>
 <p>一个区域用行列<code>content-start</code>和<code>content-end</code>定义行和列，将会使用name content。您可以使用<code>grid-area: content</code>在这个区域放置一个项目。</p>
