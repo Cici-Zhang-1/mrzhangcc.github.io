@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh_CN">
-    <head>
-        <meta charset="utf-8" />
+    <head><meta name="generator" content="Hexo 3.8.0">
+        <meta charset="utf-8">
         
         <title>Javascript中for和forEach的对比 | ZhangCC</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -12,6 +12,7 @@
 <meta property="og:url" content="http://www.zhangcc.me/2017/06/13/Javascript中for和forEach的对比/index.html">
 <meta property="og:site_name" content="ZhangCC">
 <meta property="og:description" content="在Javascript中可以通过for循环和forEach() 方法遍历数组，那么这两者之间有什么区别呢？在本文中我将讨论它们的工作机制以及在什么情况下选择哪一种方式遍历数组更合适。 工作机制我们首先看看for循环和forEach方法的工作机制。 //for循环 for (var i = 0; i &amp;lt; 3; i++) {     console.log(i); } //1 2 3 可以看出f">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2017-06-14T12:52:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javascript中for和forEach的对比">
@@ -31,7 +32,7 @@
         <link rel="stylesheet" href="/css/index.css">
         <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     </head>
-
+</html>
     <body>
         <div class="container-fluid">
             <div class="row">
@@ -39,7 +40,7 @@
                     <header>
     <div class="header-row row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <a class="header-img" href="/" ><img src="/self.png" class="img-responsive center-block img-circle img-logo" alt="ZhangCC" title="ZhangCC"></a>
+            <a class="header-img" href="/"><img src="/self.png" class="img-responsive center-block img-circle img-logo" alt="ZhangCC" title="ZhangCC"></a>
         </div>
     </div>
     <div class="header-row row">
@@ -91,7 +92,7 @@
     </div>
 </header>
 
-                    <main><article id="post-Javascript中for和forEach的对比" class="article article-type-post" itemscope itemprop="blogPost">
+                    <main><article id="post-Javascript中for和forEach的对比" class="article article-type-post" itemscope="" itemprop="blogPost">
     
   
     <h3 class="article-title text-center" itemprop="name">
@@ -167,7 +168,7 @@ for (var i = 0; i &lt; 3; i++) {
     });
 });
 </code></pre><p>这样做不仅精简了代码，而且省去了临时变量<code>i</code>、<code>j</code>。是不是更容易阅读？</p>
-<h3 id="2-使用forEach-方法减少出现off-by-one错误"><a href="#2-使用forEach-方法减少出现off-by-one错误" class="headerlink" title="2. 使用forEach()方法减少出现off-by-one错误"></a>2. 使用forEach()方法减少出现<em>off-by-one</em>错误</h3><p>维基百科中对<a href="https://en.wikipedia.org/wiki/Off-by-one_error" target="_blank" rel="external">off-by-one</a>的定义如下：</p>
+<h3 id="2-使用forEach-方法减少出现off-by-one错误"><a href="#2-使用forEach-方法减少出现off-by-one错误" class="headerlink" title="2. 使用forEach()方法减少出现off-by-one错误"></a>2. 使用forEach()方法减少出现<em>off-by-one</em>错误</h3><p>维基百科中对<a href="https://en.wikipedia.org/wiki/Off-by-one_error" target="_blank" rel="noopener">off-by-one</a>的定义如下：</p>
 <blockquote>
 <p><em>An off-by-one error (OBOE), also commonly known as an OBOB (off-by-one bug) or “that extra inch you didn’t really want”, is a logic error involving the discrete equivalent of a boundary condition. It often occurs in computer programming when an iterative loop iterates one time too many or too few.</em></p>
 </blockquote>
@@ -183,7 +184,7 @@ for (var i = 0; i &lt; 3; i++) {
         break;
     }
 }
-</code></pre><p>采用<code>break</code>，可以随时中断循环跳出。值得一提的是在ES6中，有一个数组方法<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/find" target="_blank" rel="external">find()</a>可以用于查找数组元素，和上面的功能类似。但是并目前并不是所有浏览器都支持它，所以如果你要使用它最好写一个polyfill。</p>
+</code></pre><p>采用<code>break</code>，可以随时中断循环跳出。值得一提的是在ES6中，有一个数组方法<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/find" target="_blank" rel="noopener">find()</a>可以用于查找数组元素，和上面的功能类似。但是并目前并不是所有浏览器都支持它，所以如果你要使用它最好写一个polyfill。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文中并没有说一定要选择使用<code>for</code>循环或者<code>forEach()</code>方法，但是我已经列出了常用的使用情况。本文中没有描述性能方面，如果要对比两者之间的性能，<code>for</code>循环更胜一筹。但是，通常情况下这种性能优势并不会起太大作用，这属于过早优化。所以为了长久维护优先选择可读性。如果<code>forEach()</code>真的影响性能时，那就使用<code>for</code>循环试试。</p>
 
 </div>
@@ -194,7 +195,7 @@ for (var i = 0; i &lt; 3; i++) {
         <a class="article-nav-link" href="/2018/01/17/Mac中iterm快捷键/" tittle="Mac中iterm快捷键">上一篇</a>
     
     
-        <a class="article-nav-link" href="/2017/06/11/Macbook环境下phpstorm常用快捷键/" tittle="Macbook环境下phpstorm常用快捷键">下一篇</a></a>
+        <a class="article-nav-link" href="/2017/06/11/Macbook环境下phpstorm常用快捷键/" tittle="Macbook环境下phpstorm常用快捷键">下一篇</a>
   
 </nav>
 
@@ -213,5 +214,5 @@ for (var i = 0; i &lt; 3; i++) {
         </div>
     </body>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</html>
+
 
