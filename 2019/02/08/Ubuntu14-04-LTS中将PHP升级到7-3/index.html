@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+    <head><meta name="generator" content="Hexo 3.8.0">
+        <meta charset="utf-8">
+        
+        <title>Ubuntu14.04 LTS中将PHP升级到7.3 | ZhangCC</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="description" content="本文讲述在Ubuntu14.04 LTS环境下如何一步一步将PHP升级到7.3 1. 添加更新源先获取管理员权限，然后添加apt的更新源：12apt-get install python-software-propertiesadd-apt-repository ppa:ondrej/php 然后apt更新1apt-get update 2. 安装PHP7.3更新后，可以先搜索PHP7.3的安">
+<meta name="keywords" content="PHP,Ubuntu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu14.04 LTS中将PHP升级到7.3">
+<meta property="og:url" content="http://www.zhangcc.me/2019/02/08/Ubuntu14-04-LTS中将PHP升级到7-3/index.html">
+<meta property="og:site_name" content="ZhangCC">
+<meta property="og:description" content="本文讲述在Ubuntu14.04 LTS环境下如何一步一步将PHP升级到7.3 1. 添加更新源先获取管理员权限，然后添加apt的更新源：12apt-get install python-software-propertiesadd-apt-repository ppa:ondrej/php 然后apt更新1apt-get update 2. 安装PHP7.3更新后，可以先搜索PHP7.3的安">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.zhangcc.me/2019/02/08/Ubuntu14-04-LTS中将PHP升级到7-3/php.jpeg">
+<meta property="og:updated_time" content="2019-02-08T20:35:17.936Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ubuntu14.04 LTS中将PHP升级到7.3">
+<meta name="twitter:description" content="本文讲述在Ubuntu14.04 LTS环境下如何一步一步将PHP升级到7.3 1. 添加更新源先获取管理员权限，然后添加apt的更新源：12apt-get install python-software-propertiesadd-apt-repository ppa:ondrej/php 然后apt更新1apt-get update 2. 安装PHP7.3更新后，可以先搜索PHP7.3的安">
+<meta name="twitter:image" content="http://www.zhangcc.me/2019/02/08/Ubuntu14-04-LTS中将PHP升级到7-3/php.jpeg">
+        
+          <link rel="alternate" href="/atom.xml" title="ZhangCC" type="application/atom+xml">
+        
+        
+          <link rel="icon" href="/favicon32.png" sizes="32x32">
+        
+        
+          <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+        
+        <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
+        <link rel="stylesheet" href="/css/index.css">
+        <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+</html>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
+                    <header>
+    <div class="header-row row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <a class="header-img" href="/"><img src="/self.png" class="img-responsive center-block img-circle img-logo" alt="ZhangCC" title="ZhangCC"></a>
+        </div>
+    </div>
+    <div class="header-row row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <p class="header-des text-center">丝丝屡屡，点点滴滴，记录在这里</p>
+        </div>
+    </div>
+    <div class="header-row row">
+        <nav class="navbar navbar-none navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#z-nav" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="z-nav">
+                    <ul class="nav-center nav navbar-nav">
+                        
+                            
+                                <li><a href="/" title="主页">主页</a></li>
+                            
+                        
+                            
+                                <li><a href="/categories/技术/" title="技术">技术</a></li>
+                            
+                        
+                            
+                                <li><a href="/categories/散文/" title="散文">散文</a></li>
+                            
+                        
+                            
+                                <li><a href="/categories/美食/" title="美食">美食</a></li>
+                            
+                        
+                            
+                                <li><a href="/about/" title="关于">关于</a></li>
+                            
+                        
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </div>
+</header>
+
+                    <main><article id="post-Ubuntu14-04-LTS中将PHP升级到7-3" class="article article-type-post" itemscope="" itemprop="blogPost">
+    
+  
+    <h3 class="article-title text-center" itemprop="name">
+      Ubuntu14.04 LTS中将PHP升级到7.3
+    </h3>
+  
+
+
+    <div class="article-meta text-center">
+    <span><i class="fa fa-calendar"></i><a href="/archives/2019/02">2019-02-08</a></span>
+    
+    
+    
+        <span>
+            <i class="fa fa-bookmark"></i><a class="article-category-link" href="/categories/技术/">技术</a>·<a class="article-category-link" href="/categories/技术/PHP/">PHP</a>
+        </span>
+    
+    
+        <span>
+            <i class="fa fa-tags"></i><a class="article-tag-link" href="/tags/PHP/">PHP</a>·<a class="article-tag-link" href="/tags/Ubuntu/">Ubuntu</a>
+        </span>
+    
+</div>
+
+    
+        <div class="article-content" itemprop="articleBody">
+    <p class="article-content-center"><img src="/2019/02/08/Ubuntu14-04-LTS中将PHP升级到7-3/php.jpeg" title="PHP"></p>
+
+<p>本文讲述在Ubuntu14.04 LTS环境下如何一步一步将PHP升级到7.3</p>
+<h3 id="1-添加更新源"><a href="#1-添加更新源" class="headerlink" title="1. 添加更新源"></a>1. 添加更新源</h3><p>先获取管理员权限，然后添加apt的更新源：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get install python-software-properties</span><br><span class="line">add-apt-repository ppa:ondrej/php</span><br></pre></td></tr></table></figure></p>
+<p>然后apt更新<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-安装PHP7-3"><a href="#2-安装PHP7-3" class="headerlink" title="2. 安装PHP7.3"></a>2. 安装PHP7.3</h3><p>更新后，可以先搜索PHP7.3的安装包：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-cache search php7.3</span><br></pre></td></tr></table></figure></p>
+<p>会列出相关的安装包</p>
+<p>然后安装PHP7.3<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install php7.3</span><br></pre></td></tr></table></figure></p>
+<p>在安装之前会提示你一些安装包会被同时安装</p>
+<p>安装完成之后可以按需安装其它相关模块：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get install php7.3-mysql</span><br><span class="line"></span><br><span class="line">apt-get install php7.3-curl php7.3-xml php7.3-gd php7.3-mbstring php-memcached php7.3-zip</span><br></pre></td></tr></table></figure></p>
+<p>在之前已经搜索了php7.3相关的安装包，如果有需求，可以找到模块名称，然后安装</p>
+<h3 id="3-验证安装"><a href="#3-验证安装" class="headerlink" title="3. 验证安装"></a>3. 验证安装</h3><p>安装完成之后可以先重启Web服务器（Apache， Nginx），然后打开命令行验证版本号：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service apache2 restart</span><br><span class="line">php -v</span><br></pre></td></tr></table></figure></p>
+<p>然后在Web目录下新建一个文件（index.php），然后用浏览器访问：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">phpinfo();</span><br></pre></td></tr></table></figure></p>
+<p>如果浏览器打开之后，仍然显示的是之前的版本，则需要先停用之前的版本，然后启用最新的版本：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a2dismod php5</span><br><span class="line">a2enmod php7</span><br><span class="line">service apache2 restart</span><br></pre></td></tr></table></figure></p>
+
+</div>
+
+        
+<nav class="article-nav" id="articleNav">
+    
+    
+        <a class="article-nav-link" href="/2019/01/25/学一学讲故事的套路/" tittle="学一学讲故事的套路">下一篇</a>
+  
+</nav>
+
+
+    
+    
+</article>
+
+</main>
+                    <footer>
+    <p class="copyright text-center">©2018 基于Hexo搭建  主题<a href="https://github.com/mrzhangcc/hexo-theme-sim" title="hexo-theme-sim">hexo-theme-sim</a>  作者<a href="http://www.zhangcc.me" title="Cici">Cici</a></p>
+</footer>
+
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
